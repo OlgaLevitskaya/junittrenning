@@ -34,13 +34,13 @@ public class RulesTest extends RulesTestBase {
     @Test
     @UseDataProvider(value = "fileName")
     public void testDataProvider1(String fileName) {
-        createSuccessFile(getTmp(), fileName);
+        createSuccessFile(fileName);
     }
 
     @Test
     @UseDataProvider(value = "dataSourceLoader", location = UniversalDataProviders.class)
     @DataSource(value = "/user.data", type = RESOURCE)
     public void testDataProvider2(String fileName) {
-        createSuccessFile(getTmp(), fileName);
+        createSuccessFile(fileName);
     }
 }
