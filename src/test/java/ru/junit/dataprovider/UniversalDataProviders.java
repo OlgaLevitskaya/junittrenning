@@ -1,17 +1,11 @@
-package ru.junit.utils;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.runners.model.FrameworkMethod;
+package ru.junit.dataprovider;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
+import org.junit.runners.model.FrameworkMethod;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UniversalDataProviders {
 
@@ -21,13 +15,14 @@ public class UniversalDataProviders {
         if (ds == null) {
             throw new Error("Test method has no @DataSource annotation: " + testMethod.getName());
         }
+        String value = ds.value();
+        System.out.println("TYPE = " + ds.type());
+        System.out.println("VALUE = " + value);
         switch (ds.type()) {
             case RESOURCE:
-                return loadDataFromResource(ds.value());
-
+                return loadDataFromResource(value);
             case FILE:
-                return loadDataFromFile(ds.value());
-
+                return loadDataFromFile(value);
             default:
                 throw new Error("Data source type is not supported: " + ds.type());
         }
@@ -55,5 +50,4 @@ public class UniversalDataProviders {
 
         return (Object[][]) userData.toArray(new Object[][]{});
     }
-
 }

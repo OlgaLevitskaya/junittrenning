@@ -1,4 +1,4 @@
-package ru.junit.utils;
+package ru.junit.dataprovider;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -8,12 +8,12 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface DataSource {
-    public enum Type {
-        RESOURCE,
-        FILE
-    }
-
     String value();
 
     Type type();
+
+    enum Type {
+        RESOURCE,
+        FILE,
+    }
 }

@@ -5,13 +5,13 @@ import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import ru.junit.utils.DataSource;
+import ru.junit.dataprovider.DataSource;
 import ru.junit.utils.RulesTestBase;
-import ru.junit.utils.UniversalDataProviders;
+import ru.junit.dataprovider.UniversalDataProviders;
 
 import java.util.Random;
 
-import static ru.junit.utils.DataSource.Type.RESOURCE;
+import static ru.junit.dataprovider.DataSource.Type.RESOURCE;
 
 /**
  * Примеры
